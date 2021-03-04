@@ -37,18 +37,21 @@
         //         })
         //     })
         // }
-        function callArticle(){
-        if(location.hash)alert(location.hash.substr(2));
-        if(location.hash){
-            fetch(location.hash.substr(2)).then((response)=>{
+       
+        <script>
+        function callArticle(file){
+            fetch(file).then((response)=>{
                 response.text().then((text)=>{
                     document.querySelector('article').innerHTML=text;
                 })
             })
+        }
+        if(location.hash){
+            
         }else{
             callArticle(welcome);
         }
-    }
+    </script>
     </script>
 
 </body>
