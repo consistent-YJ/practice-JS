@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Hello World!</h1>
+        <hr>
+        <nav>
+            <ul>
+                <li><a href='#!article_1'onclick="callArticle('article_1')">nav1</a></li>
+                <li><a href='#!article_2'onclick="callArticle('article_2')">nav2</a></li>
+                <li><a href='#!article_3'onclick="callArticle('article_3')">nav3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <section>
+        <article>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quibusdam, eum omnis ipsam quasi excepturi nulla dolores tempore. Fugiat qui sunt doloribus recusandae veniam aliquam fuga nostrum eaque exercitationem placeat.
+            Explicabo eum vel voluptas sequi repudiandae incidunt quis, ea quibusdam iste, molestias, voluptatibus alias perspiciatis quos maxime veritatis nisi nemo repellendus labore quisquam minus fugiat! Eius repudiandae voluptate perferendis accusantium.
+            Dolorum quis est aut ex illo quae adipisci facere pariatur dolores, animi quos, maxime consequatur laborum repellat minus molestiae quidem aliquam! Magni ipsa doloribus debitis? Ducimus vitae culpa animi qui.
+            Harum asperiores neque alias consequatur sint. Libero, magnam maiores voluptatibus culpa qui, illo reiciendis optio delectus repellat, odio praesentium tempora consequatur numquam dolorem aspernatur fuga corrupti consequuntur ad sapiente. Impedit!
+        </article>
+    </section>
+    <script>
+        // function callArticle(file){
+        //     fetch(file).then((response)=>{
+        //         response.text().then((text)=>{
+        //             document.querySelector('article').innerHTML=text;
+        //         })
+        //     })
+        // }
+        function callArticle(){
+        if(location.hash)alert(location.hash.substr(2));
+        if(location.hash){
+            fetch(location.hash.substr(2)).then((response)=>{
+                response.text().then((text)=>{
+                    document.querySelector('article').innerHTML=text;
+                })
+            })
+        }else{
+            callArticle(welcome);
+        }
+    }
+    </script>
+
+</body>
+</html>
