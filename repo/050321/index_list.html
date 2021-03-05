@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='container'>
+        <header>
+            <h1>
+               WELCOME! THIS is site for practicing
+            </h1>
+            <hr>
+            <nav>
+                <ul id="here">
+                    <!-- <li><a href='#!HTML' onclick='fetchCall("HTML")'>HTML</a></li>
+                    <li><a href='#!CSS' onclick='fetchCall("CSS")'>CSS</a></li> 
+                    <li><a href='#!JAVASCRIPT' onclick='fetchCall("JAVASCRIPT")'>JAVASCRIPT</a></li>
+                    <li><a href='#!AJAX' onclick='fetchCall("AJAX")'>AJAX</a></li> --> 
+                </ul>
+            </nav>
+        </header>
+        <hr>
+        <section>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ex a animi incidunt ipsam magni expedita, deleniti fugit quibusdam laboriosam numquam. Dolores impedit consequuntur modi atque, voluptatum voluptates libero beatae.
+        Molestias libero consequatur sequi temporibus dicta nihil pariatur tenetur exercitationem, quae quidem vel aliquam reprehenderit eligendi, placeat sapiente reiciendis explicabo at minima doloribus, assumenda ipsam atque repellat quas eos. Perspiciatis.
+        Assumenda expedita amet nemo, magnam quasi temporibus corporis mollitia ab error a non incidunt aliquam ad tempora dignissimos quibusdam molestias aliquid necessitatibus ea magni dolores vel debitis beatae! Repellendus, sequi.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ex a animi incidunt ipsam magni expedita, deleniti fugit quibusdam laboriosam numquam. Dolores impedit consequuntur modi atque, voluptatum voluptates libero beatae.
+        Molestias libero consequatur sequi temporibus dicta nihil pariatur tenetur exercitationem, quae quidem vel aliquam reprehenderit eligendi, placeat sapiente reiciendis explicabo at minima doloribus, assumenda ipsam atque repellat quas eos. Perspiciatis.
+        Assumenda expedita amet nemo, magnam quasi temporibus corporis mollitia ab error a non incidunt aliquam ad tempora dignissimos quibusdam molestias aliquid necessitatibus ea magni dolores vel debitis beatae! Repellendus, sequi.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ex a animi incidunt ipsam magni expedita, deleniti fugit quibusdam laboriosam numquam. Dolores impedit consequuntur modi atque, voluptatum voluptates libero beatae.
+        Molestias libero consequatur sequi temporibus dicta nihil pariatur tenetur exercitationem, quae quidem vel aliquam reprehenderit eligendi, placeat sapiente reiciendis explicabo at minima doloribus, assumenda ipsam atque repellat quas eos. Perspiciatis.
+        Assumenda expedita amet nemo, magnam quasi temporibus corporis mollitia ab error a non incidunt aliquam ad tempora dignissimos quibusdam molestias aliquid necessitatibus ea magni dolores vel debitis beatae! Repellendus, sequi.</p>
+        </section>
+    </div>
+    <script>
+        function fetchCall(file){
+            fetch(file).then((response)=>{
+                response.text().then((text)=>{
+                    document.querySelector('section').innerHTML=text;
+                })
+            })
+        }
+        fetch('index_list_list').then((response)=>{
+            response.text().then((text)=>{
+                let tags='';
+                listNames=text.split(',');
+                listNames.forEach((value)=>{
+                    let tag=value;
+                    value=value.trim();
+                    tag=`<li><a href=#!${value} onclick=fetchCall('${value}')>${value}</a></li>`;
+                    tags+=tag;
+                    console.log(tags);
+                })
+                document.querySelector('#here').innerHTML=tags;
+              })
+            })
+    </script>
+</body>
+</html>
